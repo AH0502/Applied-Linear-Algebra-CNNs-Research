@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage{amsmath, amssymb, graphicx, geometry}
+\usepackage{amsmath, amssymb, graphicx, geometry, amsthm}
 
 \usepackage{natbib} % For managing citations with 
 
@@ -8,6 +8,9 @@
 \title{Analysis of Linear Algebraic Operations of Convolutional Neural Networks}
 \author{Alex Hagopian \\Teresa Magnus PhD \\ Department of Mathematics and Computer Science, Rivier University}
 \date{September 2025}
+
+
+\newtheorem{theorem}{Theorem}
 
 \begin{document}
 
@@ -23,7 +26,38 @@ to modern machine learning applications such as image and video processing,
 object detection, and medical imagining, to name a few.
 
 \section*{Background}
+A convolution is a mathematical operation that is defined as
+\begin{equation}
+    s(t) = (x \ast w)(t)
+\end{equation}
+and
+\begin{equation}
+    s(t)=\int x(a) w(t-a) da
+\end{equation}
+Generally, the above function is defined for any two functions, $w(t-a)$ and $x(a)$ where the integral is defined. \cite{Goodfellow-et-al-2016}
+Convolution has useful algebraic properties such as associativity, commutativity, and distributivity. We will prove commutativity as it will be useful for our purposes later on.
 
+\begin{theorem}
+    For two functions $x$ and $w$, $x \ast w= w \ast x$
+\end{theorem}
+\begin{proof}
+ By definition, 
+ \begin{equation*}
+     (x * w)(t) = \int_{0}^{t} x(a)w(t-a)da. 
+ \end{equation*}
+ Let 
+ \begin{align*}
+     v &= t-a \\
+     a &= t-v \\
+     dv &= -da
+ \end{align*}
+     
+ Substituting back into the original equation,
+ \begin{align*}
+     & =\int_{t}^0-x(t-v)w(a)da \\
+     & =\int_0^tw(a)x(t-v)da = (w*x)(t)
+ \end{align*}
+\end{proof}
 
 \section*{Research Questions}
 This study seeks to answer the following questions: 
@@ -42,7 +76,7 @@ is expected to go as follows:
     foundations of CNNs. 
 \end{enumerate}
 
-% \bibliographystyle{plainnat} 
-% \bibliography{references}
+\bibliographystyle{plainnat} 
+\bibliography{references}
 
 \end{document}
