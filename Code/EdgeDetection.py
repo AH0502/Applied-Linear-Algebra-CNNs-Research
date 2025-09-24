@@ -15,7 +15,11 @@ class InvalidDimensionError(Exception):
    
 def GetArgs():
     parser = argparse.ArgumentParser()
-    parser.add_argument("path", type=pathlib.Path)
+    parser.add_argument(
+        "path", 
+        type=pathlib.Path,
+        help="Path to image."
+        )
     return parser
     # Load image
 def EdgeDetector(path):
@@ -37,14 +41,7 @@ def EdgeDetector(path):
         error = InvalidDimensionError()
         print(error.message)
 
-
-
-
-    # plt.imshow(grey_img, cmap="grey")
-    # plt.show()
-
-    kernel = np.array([[-1, -1, -1,], [-1, 7, -1], [-1, -1, -1]])
-
+    kernel = np.array([[-1, -1, -1,], [-1, 2, -1], [-1, -1, -1]])
     
 
     filtered_img = np.zeros(shape=(img_height -2 , img_width - 2))
@@ -52,29 +49,25 @@ def EdgeDetector(path):
     for i in range(1, img_height - 2):
         for j in range(1, img_width - 2):
             slice = grey_img[j: j+3, i:i+3]
-            filtered_img[i, j] = np.vdot(slice, kernel)
+            filtered_img[j, i] = np.vdot(slice, kernel)
 
-    plt.imshow(filtered_img, cmap="grey")
+    fig, (ax1, ax2) = plt.subplots(1, 2)
+    fig.suptitle("Edge Detection")
+    ax1.imshow(img)
+    ax1.set_title("Original Image")
+    ax1.axis(False)
+    ax2.imshow(filtered_img, cmap="grey")
+    ax2.set_title("Filtered Image")
+    ax2.axis(False)
     plt.show()
 
 
 
 if __name__ == "__main__":
     parser = GetArgs()
-    try: 
-        # Check if path is provided
-       num_args = len(parser._get_args())
-       if num_args == 0:
-            raise PathError
+    args = parser.parse_args()
 
-    except PathError:
-        e = PathError()
-        print(e.message)
-
-    else:
-        args = parser.parse_args()
-
-        EdgeDetector(args.path)
+    EdgeDetector(args.path)
 
 
 
