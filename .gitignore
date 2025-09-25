@@ -4,3 +4,6 @@
 *synctex.gz
 *.bbl
 Convolutional Neural Networks - Deep Learning Book.pdf
+.venv/
+cat.jpg
+.vscode
