@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, CircularProgress } from "@mui/material";
 import { CloudUpload } from "@mui/icons-material";
-import { uploadFile } from "../Utils/HTTP";
+import { uploadFile } from "../../api/HTTP";
 
 export default function ImageUploadButton() {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
