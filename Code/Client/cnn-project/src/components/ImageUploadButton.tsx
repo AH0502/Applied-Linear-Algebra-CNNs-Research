@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import { CloudUpload } from "@mui/icons-material";
-import { uploadFile } from "../HTTP";
+import { uploadFile } from "../Utils/HTTP";
 
 export default function ImageUploadButton() {
-    // TODO: Implement this.
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
-    const [image, setImage] = useState<Blob | undefined>(undefined);
     const [blobURL, setBlobURL] = useState<string>();
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setIsLoading(true);
       if (event.target.files && event.target.files[0]) {
         setSelectedFile(event.target.files[0]);
         uploadFile(event.target.files[0])
@@ -19,6 +19,7 @@ export default function ImageUploadButton() {
             }
             const url = URL.createObjectURL(img);
             setBlobURL(url);
+            setIsLoading(false)
           });
         
         }
@@ -26,7 +27,6 @@ export default function ImageUploadButton() {
 
     if (!blobURL) {
 
-   
     return (
        <Button 
         component="label"
@@ -43,6 +43,11 @@ export default function ImageUploadButton() {
       </Button>
     ) 
   }
+
+  if (isLoading) {
+    return <CircularProgress />
+  }
+
   else {
     return (
       <>
