@@ -1,3 +1,4 @@
+import io
 import numpy as np 
 import matplotlib.pyplot as plt
 import argparse
@@ -59,15 +60,19 @@ def EdgeDetector(path):
     ax2.imshow(filtered_img, cmap="grey")
     ax2.set_title("Filtered Image")
     ax2.axis(False)
-    plt.show()
+
+    buffer = io.BytesIO()
+    fig.savefig(buffer, format="png")
+    plt.close()
+    
+    return buffer
 
 
+# if __name__ == "__main__":
+#     # parser = GetArgs()
+#     # args = parser.parse_args()
 
-if __name__ == "__main__":
-    parser = GetArgs()
-    args = parser.parse_args()
-
-    EdgeDetector(args.path)
+#     EdgeDetector(path)
 
 
 

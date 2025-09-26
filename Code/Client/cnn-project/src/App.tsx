@@ -1,24 +1,19 @@
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { Button } from '@mui/material'
+import ImageUploadButton from './components/ImageUploadButton';
 import './App.css'
+import { Typography } from '@mui/material';
 
 function App() {
 
-  const handleClick = () => {
-
-    
-
-  }
-
+ // TODO: Design homepage.
   return (
     <>
-      <Button 
-        component="label"
-        variant='contained'
-        startIcon={<CloudUploadIcon />}
-        onClick={handleClick}
-      >Upload Files
-      </Button>
+      <div>
+
+      <Typography variant='h4'>Edge Detection</Typography>
+      </div>
+      <div>
+      <ImageUploadButton />
+      </div>
     </>
   )
 }
