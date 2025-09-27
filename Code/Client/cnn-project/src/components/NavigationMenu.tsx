@@ -25,13 +25,14 @@ export default function NavigationMenu() {
             top: 0,
             width: "100%",
             justifyContent: "space-evenly",
-            bgcolor: "#1F1F1F"
+            bgcolor: "#1F1F1F",
+            mb: 64
         }}>
                 <Toolbar>
                     <Typography variant="h6">CNN Research Project</Typography>
                     <Box sx={{ display: "flex", mx: "auto"}}>
-                    <Button color="inherit" href="/">Home</Button>
-                    <Button color="inherit" href="/about">About</Button>
+                    <Button color="inherit" onClick={() => navigate("/")}>Home</Button>
+                    <Button color="inherit" onClick={() => navigate("/about")}>About</Button>
                     <Button onClick={handleClick} color="inherit" >Tools</Button>
                     <Menu 
                         open={open}
