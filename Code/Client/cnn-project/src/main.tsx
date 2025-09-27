@@ -5,6 +5,14 @@ import App from './Pages/EdgeDetectionPage.tsx';
 import AboutPage from './Pages/AboutPage.tsx';
 import HomePage from './Pages/HomePage.tsx';
 import EdgeDetectionPage from './Pages/EdgeDetectionPage.tsx';
+import { createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  components: {
+    
+  }
+})
+
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
