@@ -1,10 +1,8 @@
-from fastapi import FastAPI, UploadFile, File, Form
+from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import StreamingResponse
 from EdgeDetection import EdgeDetector
 from fastapi.middleware.cors import CORSMiddleware
 import io
-
-IMAGE_UPLOAD_PATH = './Images/'
 
 app = FastAPI()
 
