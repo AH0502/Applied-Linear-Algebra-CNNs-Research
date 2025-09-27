@@ -1,9 +1,10 @@
+import { InternalServerError } from "./errors";
+
 export async function uploadFile(file: File) {
     const url = "http://127.0.0.1:8000/upload";
     const formData = new FormData();
     formData.append("file", file);
     try {
-        
         const response = await fetch(
             url,
             {
@@ -11,9 +12,9 @@ export async function uploadFile(file: File) {
                 body: formData
             }
         );
-        return await response.blob()
+        return await response.blob();
     }
     catch (e) {
-        console.error(e);
+        throw new InternalServerError();
     }
 }

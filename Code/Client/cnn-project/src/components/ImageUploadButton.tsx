@@ -3,6 +3,7 @@ import { Button, CircularProgress } from "@mui/material";
 import { CloudUpload } from "@mui/icons-material";
 import { uploadFile } from "../api/post";
 import type { Status } from "../interfaces/Status";
+import { InternalServerError } from "../api/errors";
 
 export default function ImageUploadButton(
   {status, setStatus}: 
@@ -17,7 +18,11 @@ export default function ImageUploadButton(
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       try {
         setStatus({
-          isError: false,
+          Error: {
+            isError: false,
+            errorType: null,
+            errorMessage: null
+          },
           isLoading: true,
           isUploaded: false
         })
@@ -33,17 +38,27 @@ export default function ImageUploadButton(
               setStatus({
                 isUploaded: true,
                 isLoading: false,
-                isError: false
+                Error: {
+                  isError: false,
+                  errorType: null,
+                  errorMessage: null
+              },
               })
             });
-          
           }
+          
+      
       }
-      catch (e) {
+      catch (e: unknown) {
+        if (e instanceof InternalServerError)
         setStatus({
           isLoading: false,
           isUploaded: false,
-          isError: true
+          Error: {
+            isError: true,
+            errorType: e.name,
+            errorMessage: e.message
+          },
         })
       }
     }
@@ -71,7 +86,6 @@ export default function ImageUploadButton(
   if (status.isLoading) {
     return <CircularProgress />
   }
-
   else {
     return (
       <img src={blobURL} />

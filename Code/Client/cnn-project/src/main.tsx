@@ -1,7 +1,6 @@
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import './index.css';
-import App from './Pages/EdgeDetectionPage.tsx';
 import AboutPage from './Pages/AboutPage.tsx';
 import HomePage from './Pages/HomePage.tsx';
 import EdgeDetectionPage from './Pages/EdgeDetectionPage.tsx';

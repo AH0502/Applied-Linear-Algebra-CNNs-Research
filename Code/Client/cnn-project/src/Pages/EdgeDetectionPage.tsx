@@ -4,6 +4,7 @@ import '../App.css'
 import { Alert, Box, Snackbar } from '@mui/material';
 import { useState } from 'react';
 import type { Status } from '../interfaces/Status';
+import { InternalServerError } from '../api/errors';
 
 
 export default function EdgeDetectionPage() {
@@ -11,9 +12,12 @@ export default function EdgeDetectionPage() {
   const [status, setStatus] = useState<Status>({
     isLoading: false,
     isUploaded: false,
-    isError: false
+    Error: {
+            isError: false,
+            errorType: null,
+            errorMessage: null
+          },
   });
-
   
  // TODO: Design homepage.
   return (
@@ -25,19 +29,24 @@ export default function EdgeDetectionPage() {
           setStatus={setStatus}
           />
           <Snackbar 
-            open={status.isError}
+            anchorOrigin={{horizontal: "center", vertical: "top"}}
+            open={status.Error.isError}
             autoHideDuration={5000}
             onClose={() => setStatus({
               isUploaded: false,
               isLoading: false,
-              isError: false
+              Error: {
+                isError: false,
+                errorType: null,
+                errorMessage: null
+          },
             })}>
               <Alert 
                 severity='error'
                 variant="filled"
                 sx={{ width: "100%"}}
-                >
-                  Test
+                > 
+                {status.Error.errorMessage}
                 </Alert>
             </Snackbar>
       </Box>
