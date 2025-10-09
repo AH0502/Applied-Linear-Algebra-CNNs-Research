@@ -12,7 +12,7 @@ export default function EdgeDetectionPage() {
     const [status, setStatus] = useState<Status>(defaultStatus)
  // TODO: Design homepage.
   return (
-    <CustomPage>
+    <CustomPage title="Edge Detection">
         <ImageUploadButton 
           status={status}
           setStatus={setStatus}

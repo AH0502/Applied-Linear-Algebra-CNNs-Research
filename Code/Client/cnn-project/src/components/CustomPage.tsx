@@ -1,17 +1,22 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import NavigationMenu from "./NavigationMenu";
 
 export default class CustomPage extends React.Component<
-    {children?: React.ReactNode}
-    > {
+    {
+        title: string, 
+        children?: React.ReactNode
+    }> {
     render() {
-        const {children} = this.props;
+
         return (
             <Box sx={{display:"flex", flexDirection: "column" }}>
                 <NavigationMenu />
-                <Box sx={{display: "flex", justifyContent: "center", mt: "64px"}} >
-                    {children}
+                <Box sx={{mt: 2, display:"flex", justifyContent:"center"}}>
+                    <Typography variant="h5">{this.props.title}</Typography>
+                </Box>
+                <Box sx={{display: "flex", justifyContent: "center", mt: "64px"}}>
+                    {this.props.children}
                 </Box>
             </Box>
         )

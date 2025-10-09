@@ -1,11 +1,10 @@
 import { InternalServerError } from "./errors";
 
-export async function edge_detection(file: File) {
-    const url = "http://127.0.0.1:8000/api/edge-detection";
+async function send_file(endpoint: string, file: File): Promise<Blob> {
+    const url = `http://127.0.0.1:8000/api/${endpoint}`;
     const formData = new FormData();
     formData.append("file", file);
-    try {
-        const response = await fetch(
+    const response = await fetch(
             url,
             {
                 method: "POST",
@@ -13,8 +12,23 @@ export async function edge_detection(file: File) {
             }
         );
         return await response.blob();
+}
+
+export async function edge_detection(file: File): Promise<Blob> {
+    try {
+        const response = send_file("edge-detection", file);
+        return response;
     }
     catch (e) {
+        throw new InternalServerError();
+    }
+}
+
+export async function binary_classification(file: File): Promise<Blob> {
+    try {
+        const response = send_file("binary-classification", file);
+        return response;
+    } catch (e) {
         throw new InternalServerError();
     }
 }
