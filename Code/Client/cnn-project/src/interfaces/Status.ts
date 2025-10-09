@@ -10,14 +10,24 @@ export interface Status {
     }
 }
 
-export class DynamicPage extends React.Component<Status, {}> {
-    public static defaultProps = {
-        isLoading: false,
+export const defaultStatus: Status = {
+    isLoading: false,
         isUploaded: false,
         Error: {
             isError: false,
             errorType: null,
             errorMessage: null
         }
-    }
+}
+
+export const onSnackBarClose = (setStatus: React.Dispatch<React.SetStateAction<Status>>) => {
+    setStatus({
+        isUploaded: false,
+        isLoading: false,
+        Error: {
+            isError: false,
+            errorType: null,
+            errorMessage: null
+        }
+    })
 }

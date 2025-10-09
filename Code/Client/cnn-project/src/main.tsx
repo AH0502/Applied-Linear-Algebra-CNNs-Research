@@ -5,7 +5,7 @@ import AboutPage from './Pages/AboutPage.tsx';
 import HomePage from './Pages/HomePage.tsx';
 import EdgeDetectionPage from './Pages/EdgeDetectionPage.tsx';
 import { createTheme } from '@mui/material/styles';
-
+// Create theme at some point.
 const theme = createTheme({
   components: {
     

@@ -1,25 +1,15 @@
 import ImageUploadButton from '../components/ImageUploadButton';
-import NavigationMenu from '../components/NavigationMenu';
 import '../App.css'
-import { Alert, Box, Snackbar } from '@mui/material';
+import { Alert, Snackbar } from '@mui/material';
 import { useState } from 'react';
-import type { Status } from '../interfaces/Status';
+import { defaultStatus, onSnackBarClose, type Status } from '../interfaces/Status';
 import { edge_detection } from '../api/post';
-import CustomPage from './CustomPage';
+import CustomPage from '../components/CustomPage';
 
 
 export default function EdgeDetectionPage() {
 
-  const [status, setStatus] = useState<Status>({
-    isLoading: false,
-    isUploaded: false,
-    Error: {
-            isError: false,
-            errorType: null,
-            errorMessage: null
-          },
-  });
-  
+    const [status, setStatus] = useState<Status>(defaultStatus)
  // TODO: Design homepage.
   return (
     <CustomPage>
@@ -32,15 +22,7 @@ export default function EdgeDetectionPage() {
             anchorOrigin={{horizontal: "center", vertical: "top"}}
             open={status.Error.isError}
             autoHideDuration={5000}
-            onClose={() => setStatus({
-              isUploaded: false,
-              isLoading: false,
-              Error: {
-                isError: false,
-                errorType: null,
-                errorMessage: null
-          },
-            })}>
+            onClose={() => onSnackBarClose}>
               <Alert 
                 severity='error'
                 variant="filled"
@@ -50,5 +32,6 @@ export default function EdgeDetectionPage() {
                 </Alert>
             </Snackbar>
       </CustomPage>
-  )
+  ) 
 }
+
