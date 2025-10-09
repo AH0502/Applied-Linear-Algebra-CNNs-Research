@@ -1,8 +1,13 @@
+from ast import Call
 import numpy as np
-from typing import Callable, List
+from typing import Callable, List, Dict, Tuple
+import matplotlib.pyplot as plt
 
 def square(x: np.ndarray) -> np.ndarray:
     return np.power(x, 2)
+
+def sigmoid(X: np.ndarray) -> np.ndarray:
+    return 1 / (1 + np.exp(-X))
 
 def derivative(
         f: Callable[[np.ndarray], np.ndarray],
@@ -33,11 +38,3 @@ def chain_rule(
         deriv *= deriv
         
     return deriv
-
-input = np.array([1])
-
-funcs = [square, lambda x : 2*x + 1, lambda x : 1/x]
-
-print(chain_rule(funcs, input))
-
-
