@@ -1,20 +1,21 @@
 import { useState } from "react";
 import { Button, CircularProgress } from "@mui/material";
 import { CloudUpload } from "@mui/icons-material";
-import { uploadFile } from "../api/post";
 import type { Status } from "../interfaces/Status";
 import { InternalServerError, UnsupportedMediaType } from "../api/errors";
 
 const FILE_TYPES = "image/png, image/jpg, image/jpeg";
 
 export default function ImageUploadButton(
-  {status, setStatus}: 
+  {status, setStatus, api_call}: 
   {
     status: Status,
-    setStatus: React.Dispatch<React.SetStateAction<Status>>
+    setStatus: React.Dispatch<React.SetStateAction<Status>>,
+    api_call: (file: File) => Promise<Blob>
   }) 
   {
-    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    // Implement this at some point.
+    const [selectedFile, setSelectedFile] = useState<File | null>(null); 
     const [blobURL, setBlobURL] = useState<string>();
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +35,7 @@ export default function ImageUploadButton(
           if (!FILE_TYPES.includes(file.type)) { // check if correct file type
             throw new UnsupportedMediaType;
           }
-          uploadFile(event.target.files[0])
+          api_call(event.target.files[0])
             .then(img => {
               if (!img) {
                 throw new Error;

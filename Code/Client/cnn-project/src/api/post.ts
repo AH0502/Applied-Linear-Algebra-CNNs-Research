@@ -1,7 +1,7 @@
 import { InternalServerError } from "./errors";
 
-export async function uploadFile(file: File) {
-    const url = "http://127.0.0.1:8000/upload";
+export async function edge_detection(file: File) {
+    const url = "http://127.0.0.1:8000/api/edge-detection";
     const formData = new FormData();
     formData.append("file", file);
     try {

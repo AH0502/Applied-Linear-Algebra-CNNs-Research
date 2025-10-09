@@ -4,6 +4,8 @@ import '../App.css'
 import { Alert, Box, Snackbar } from '@mui/material';
 import { useState } from 'react';
 import type { Status } from '../interfaces/Status';
+import { edge_detection } from '../api/post';
+import CustomPage from './CustomPage';
 
 
 export default function EdgeDetectionPage() {
@@ -20,12 +22,11 @@ export default function EdgeDetectionPage() {
   
  // TODO: Design homepage.
   return (
-    <Box sx={{display:"flex", flexDirection: "column" }}>
-      <NavigationMenu />
-      <Box sx={{display: "flex", justifyContent: "center", mt: "64px"}} >
+    <CustomPage>
         <ImageUploadButton 
           status={status}
           setStatus={setStatus}
+          api_call={edge_detection}
           />
           <Snackbar 
             anchorOrigin={{horizontal: "center", vertical: "top"}}
@@ -48,7 +49,6 @@ export default function EdgeDetectionPage() {
                 {status.Error.errorMessage}
                 </Alert>
             </Snackbar>
-      </Box>
-      </Box>
+      </CustomPage>
   )
 }

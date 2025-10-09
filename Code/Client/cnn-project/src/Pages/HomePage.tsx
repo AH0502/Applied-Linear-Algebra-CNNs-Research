@@ -1,9 +1,9 @@
 import NavigationMenu from "../components/NavigationMenu";
+import CustomPage from "./CustomPage";
 
 export default function HomePage() {
     return (
-        <>
-            <NavigationMenu />
-        </>
+        <CustomPage>
+        </CustomPage>
     )
 }
