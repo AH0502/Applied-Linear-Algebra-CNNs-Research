@@ -40,6 +40,7 @@ export default function NavigationMenu() {
                         onClose={() => handleClose()}
                     >
                         <MenuItem onClick={() => handleClose("/edge-detection")}>Edge-Detection</MenuItem>
+                        <MenuItem onClick={() => handleClose("/binary-classification")}>Binary Classification</MenuItem>
                     </Menu>
                     </Box>
                 </Toolbar>

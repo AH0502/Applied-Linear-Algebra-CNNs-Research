@@ -1,11 +1,20 @@
+import { binary_classification } from "../api/post";
+import CustomPage from "../components/CustomPage";
 import ImageUploadButton from "../components/ImageUploadButton";
-import { PageComponent } from "../interfaces/Status";
-import CustomPage from "./CustomPage";
+import { defaultStatus, type Status } from "../interfaces/Status";
+import { useState } from "react";
 
-export default class BinaryClassificationPage extends PageComponent {
-    render() {
-        return (
-            
-        )
-    }
+export default function BinaryClassificationPage() {
+
+    const [status, setStatus] = useState<Status>(defaultStatus)
+
+    return (
+        <CustomPage title="Binary Classification">
+            <ImageUploadButton 
+                status={status}
+                setStatus={setStatus}
+                api_call={binary_classification}
+            />
+        </CustomPage>
+    )
 }

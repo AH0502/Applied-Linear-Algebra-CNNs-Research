@@ -1,3 +1,5 @@
+from ast import Bytes
+from typing import IO
 from PIL import Image, ImageOps
 import tensorflow as tf
 import keras 
@@ -6,7 +8,7 @@ import numpy as np
 
 MODEL_PATH = "Code/Server/Models/model.keras"
 
-def preprocess_image(image_path: str) -> np.ndarray:
+def preprocess_image(image_path) -> np.ndarray:
     img = Image.open(image_path)
     img = ImageOps.exif_transpose(img)
     img = img.resize((128, 128))
@@ -19,4 +21,5 @@ def classify(output: np.ndarray) -> str:
 
 if __name__ == "__main__":
     model = keras.models.load_model(MODEL_PATH)
-
+    diggy = preprocess_image("/Users/alexanderhagopian/Documents/Rivier/FA25/Vault/MA490/Applied-Linear-Algebra-CNNs-Research/Code/Server/Models/Diggy.jpeg")
+    print(model(diggy).numpy()[0])
