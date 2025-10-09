@@ -18,8 +18,8 @@ app.add_middleware(
 async def root():
     return {"message": "Server is running!"}
 
-@app.post("/upload")
-async def upload(file: UploadFile = File(...)):
+@app.post("/api/edge-detection")
+async def api_edge_detection(file: UploadFile = File(...)):
 
     try:
 

@@ -1,8 +1,6 @@
 import tensorflow as tf
-import keras
 from keras.models import Sequential
 from keras.layers import Dense, Flatten, Conv2D, MaxPool2D, Dropout
-from keras.datasets import mnist
 import tensorflow_datasets as tfds
 import matplotlib.pyplot as plt
 
