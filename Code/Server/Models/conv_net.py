@@ -6,9 +6,7 @@ import matplotlib.pyplot as plt
 
 IMG_SIZE = 128
 
-# (X_train, y_train), (X_test, y_test) = mnist.load_data()
 (train_ds, test_ds) = tfds.load('cats_vs_dogs', split=["train[:80%]", "train[80%:]"], as_supervised=True)
-
 
 def preprocess(image, label):
     image = tf.image.resize(image, (IMG_SIZE, IMG_SIZE))
