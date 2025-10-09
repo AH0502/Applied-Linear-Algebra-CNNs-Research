@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import argparse
 import pathlib
 from PIL import Image
+from HttpResponse import UnprocessableEntity
 
 class PathError(Exception):
    def __init__(self, message="No path to image specified."):
@@ -41,6 +42,7 @@ def EdgeDetector(path):
     except InvalidDimensionError: 
         error = InvalidDimensionError()
         print(error.message)
+        return UnprocessableEntity()
 
     kernel = np.array([[-1, -1, -1,], [-1, 2, -1], [-1, -1, -1]])
     

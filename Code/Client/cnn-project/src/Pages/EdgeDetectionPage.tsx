@@ -4,7 +4,6 @@ import '../App.css'
 import { Alert, Box, Snackbar } from '@mui/material';
 import { useState } from 'react';
 import type { Status } from '../interfaces/Status';
-import { InternalServerError } from '../api/errors';
 
 
 export default function EdgeDetectionPage() {
