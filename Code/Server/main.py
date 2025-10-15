@@ -6,9 +6,9 @@ from fastapi.middleware.cors import CORSMiddleware
 import io
 import keras
 import matplotlib.pyplot as plt
-from PIL import Image
+from PIL import Image, ImageOps
 
-MODEL_PATH = "/Users/alexanderhagopian/Documents/Rivier/FA25/Vault/MA490/Applied-Linear-Algebra-CNNs-Research/Code/Server/Models/model.keras"
+MODEL_PATH = "/Users/alexanderhagopian/Documents/Rivier/FA25/Vault/MA490/Applied-Linear-Algebra-CNNs-Research/Code/Server/Models/model6.keras"
 
 app = FastAPI()
 
@@ -21,6 +21,11 @@ app.add_middleware(
 )
 
 binary_classifier = keras.models.load_model(MODEL_PATH)
+
+###
+# Output Model Summary to a .txt file
+###
+binary_classifier.summary()
 
 @app.get('/')
 async def root():
@@ -45,6 +50,7 @@ async def binary_classification(file: UploadFile = File(...)):
         file = file.file.read()
         print("File read.")
         original_image = Image.open(io.BytesIO(file))
+        original_image = ImageOps.exif_transpose(original_image)
         print("Image opened.")
         img = preprocess_image(io.BytesIO(file))
         print("image processed")
@@ -54,6 +60,7 @@ async def binary_classification(file: UploadFile = File(...)):
         print(prediction)
         plt.imshow(original_image)
         plt.title(f"This is a {prediction}")
+        plt.axis(False)
         buffer = io.BytesIO()
         plt.savefig(buffer, format="png")
         
