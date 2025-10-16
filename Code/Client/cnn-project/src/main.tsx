@@ -7,7 +7,7 @@ import EdgeDetectionPage from './Pages/EdgeDetectionPage.tsx';
 import { createTheme } from '@mui/material/styles';
 import BinaryClassificationPage from './Pages/BinaryClassificationPage.tsx';
 import ConvolutionPage from './Pages/ConvolutionPage.tsx';
-import { MathJaxContext, type MathJaxContextProps} from 'better-react-mathjax';
+import { MathJaxContext } from 'better-react-mathjax';
 
 // Create theme at some point.
 export const theme = createTheme({
