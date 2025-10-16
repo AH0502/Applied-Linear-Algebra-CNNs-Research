@@ -1,10 +1,10 @@
 import { MathJax } from "better-react-mathjax";
 import CustomPage from "../components/CustomPage";
-import { Typography, Paper } from "@mui/material";
+import { Typography } from "@mui/material";
 import Definition from "../components/Definition";
 import Theorem from "../components/Theorem";
 import Proof from "../components/Proof";
-
+import Interactive from "../components/Interactive";
 
 export default function ConvolutionPage() {
 
