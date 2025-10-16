@@ -1,0 +1,14 @@
+diff --git a/node_modules/better-react-mathjax/MathJaxContext.d.ts b/node_modules/better-react-mathjax/MathJaxContext.d.ts
+index 4fca725..f9fefec 100644
+--- a/node_modules/better-react-mathjax/MathJaxContext.d.ts
++++ b/node_modules/better-react-mathjax/MathJaxContext.d.ts
+@@ -39,6 +39,8 @@ export declare type MathJaxContextProps = ({
+     config?: MathJax3Config;
+     version?: 3;
+     onStartup?: (mathJax: MathJax3Object) => void;
+-}) & MathJaxContextStaticProps;
++}) & MathJaxContextStaticProps & {
++    children?: React.ReactNode;
++};
+ declare const MathJaxContext: FC<MathJaxContextProps>;
+ export default MathJaxContext;
