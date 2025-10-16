@@ -15,7 +15,6 @@ export default function ImageUploadButton(
   }) 
   {
     // Implement this at some point.
-    const [selectedFile, setSelectedFile] = useState<File | null>(null); 
     const [blobURL, setBlobURL] = useState<string>();
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +30,6 @@ export default function ImageUploadButton(
         })
         if (event.target.files && event.target.files[0]) {
           const file = event.target.files[0];
-          setSelectedFile(file);
           if (!FILE_TYPES.includes(file.type)) { // check if correct file type
             throw new UnsupportedMediaType;
           }
