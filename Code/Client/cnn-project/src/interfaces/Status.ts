@@ -12,12 +12,12 @@ export interface Status {
 
 export const defaultStatus: Status = {
     isLoading: false,
-        isUploaded: false,
-        Error: {
-            isError: false,
-            errorType: null,
-            errorMessage: null
-        }
+    isUploaded: false,
+    Error: {
+        isError: false,
+        errorType: null,
+        errorMessage: null
+    }
 }
 
 export const onSnackBarClose = (setStatus: React.Dispatch<React.SetStateAction<Status>>) => {

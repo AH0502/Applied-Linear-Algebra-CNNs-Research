@@ -7,11 +7,12 @@ export default function BottomNavMenu() {
         <BottomNavigation sx={{
             position: "fixed",
             bottom: 0,
+            color: "#1F1F1F",
             bgcolor: "#1F1F1F",
             zIndex: 1000,
             width: "100vw"
         }}>
-            <BottomNavigationAction label="Next" icon={<NavigateBeforeIcon sx={{color: "White"}} />} />
+            <BottomNavigationAction  label="Next" icon={<NavigateBeforeIcon sx={{color: "White"}} />} />
             <BottomNavigationAction label="Next" icon={<NavigateNextIcon sx={{color: "White"}} />} />
 
         </BottomNavigation>

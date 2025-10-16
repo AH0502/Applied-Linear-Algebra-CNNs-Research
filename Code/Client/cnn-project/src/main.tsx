@@ -10,8 +10,16 @@ import ConvolutionPage from './Pages/ConvolutionPage.tsx';
 import { MathJaxContext} from 'better-react-mathjax';
 
 // Create theme at some point.
-const theme = createTheme({
+export const theme = createTheme({
   components: {
+    MuiBottomNavigationAction: {
+      styleOverrides: {
+        root: {
+          Butt: "none",
+          
+        }
+      }
+    }
     
   }
 })

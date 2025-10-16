@@ -1,7 +1,9 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, ThemeProvider, Typography } from "@mui/material";
 import NavigationMenu from "./NavigationMenu";
 import BottomNavMenu from "./BottomNavMenu";
+import { theme } from "../main";
+
 
 export default class CustomPage extends React.Component<
     {
@@ -11,6 +13,7 @@ export default class CustomPage extends React.Component<
     render() {
 
         return (
+            <ThemeProvider theme={theme}>
             <Box sx={{display:"flex", flexDirection: "column", minHeight: "100vh"}}>
                 <NavigationMenu />
                 <Box sx={{mt: 2, display:"flex", justifyContent:"center"}}>
@@ -29,6 +32,7 @@ export default class CustomPage extends React.Component<
                 </Box>
                 
             </Box>
+            </ThemeProvider>
         )
     }
 }
