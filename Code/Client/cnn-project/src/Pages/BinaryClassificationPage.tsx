@@ -5,7 +5,6 @@ import { defaultStatus, type Status } from "../interfaces/Status";
 import { useState } from "react";
 import { Typography } from "@mui/material";
 import "better-react-mathjax"
-import { MathJax, MathJaxContext} from "better-react-mathjax";
 
 export default function BinaryClassificationPage() {
 
@@ -13,11 +12,6 @@ export default function BinaryClassificationPage() {
 
     return (
         <CustomPage title="Binary Classification">
-            <MathJaxContext>
-                <MathJax>{"\\(\\frac{10}{4x} \\approx 2^{12}\\)"}</MathJax>
-            </MathJaxContext>
-                
-            
             <Typography></Typography>
             <ImageUploadButton 
                 status={status}

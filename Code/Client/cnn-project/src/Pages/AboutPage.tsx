@@ -1,5 +1,4 @@
 import { Typography, Box } from "@mui/material";
-import NavigationMenu from "../components/NavigationMenu";
 import CustomPage from "../components/CustomPage";
 
 export default function AboutPage () {

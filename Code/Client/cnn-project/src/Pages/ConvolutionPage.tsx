@@ -1,15 +1,16 @@
-import { MathJax, MathJaxContext } from "better-react-mathjax";
+import { MathJax } from "better-react-mathjax";
 import CustomPage from "../components/CustomPage";
-import { Typography } from "@mui/material";
+import { Typography, Paper } from "@mui/material";
 import Definition from "../components/Definition";
 import Theorem from "../components/Theorem";
 import Proof from "../components/Proof";
 
+
 export default function ConvolutionPage() {
+
     return (
         <CustomPage title="Convolution">
-            <MathJaxContext>
-                <Typography>
+              <Typography>
                     So what <em>is</em> is a convolution exactly?
                 </Typography>
                 <Definition number="1" title="Convolution">
@@ -84,8 +85,6 @@ export default function ConvolutionPage() {
                         {`In applications, deep learning practitioners often refer to
                         the function \\(w\\) as the `}<em>kernel</em>.
                     </MathJax>
-            </MathJaxContext>
-
         </CustomPage>
     )
 }
