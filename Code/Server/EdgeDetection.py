@@ -1,10 +1,11 @@
-import io
+import io, sys
 import numpy as np 
 import matplotlib.pyplot as plt
 import argparse
 import pathlib
 from PIL import Image
 from HttpResponse import UnprocessableEntity
+import cv2
 
 class PathError(Exception):
    def __init__(self, message="No path to image specified."):
@@ -24,7 +25,7 @@ def GetArgs():
         )
     return parser
     # Load image
-def EdgeDetector(path):
+def BasicEdgeDetector(path):
     img = Image.open(path)
 
     # Convert image to greyscale
@@ -69,12 +70,18 @@ def EdgeDetector(path):
     
     return buffer
 
+def CustomCanny(path: str):
+    img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    filtered_img = cv2.GaussianBlur(img, (3, 3), 0)
+    edges = cv2.Canny(filtered_img, 50, 100)
+    cv2.imshow("Original Image", img)
+    cv2.imshow("Blurred Image", filtered_img)
+    cv2.imshow("Edges", edges)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
-# if __name__ == "__main__":
-#     # parser = GetArgs()
-#     # args = parser.parse_args()
-
-#     EdgeDetector(path)
-
-
+# Local test
+if __name__ == "__main__":
+    file_path: str = sys.argv[1]
+    CustomCanny(file_path)
 
