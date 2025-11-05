@@ -1,7 +1,7 @@
 from Models.test import classify, preprocess_image
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import StreamingResponse
-from EdgeDetection import BasicEdgeDetector
+from EdgeDetection import BasicBlurFilter, BasicEdgeDetector
 from fastapi.middleware.cors import CORSMiddleware
 import io
 import keras
@@ -37,7 +37,9 @@ async def api_edge_detection(file: UploadFile = File(...)):
     try:
 
         file = file.file.read()
-        bytes = BasicEdgeDetector(io.BytesIO(file))
+        byte_stream = io.BytesIO(file)
+
+        bytes = BasicBlurFilter(byte_stream)
         bytes.seek(0)
         return StreamingResponse(bytes, media_type="image/png")
 

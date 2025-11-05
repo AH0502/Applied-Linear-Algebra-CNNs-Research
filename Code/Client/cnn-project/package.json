@@ -21,6 +21,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-latex": "^2.0.0",
+    "react-pdf": "^10.2.0",
     "react-router": "^7.9.2"
   },
   "devDependencies": {

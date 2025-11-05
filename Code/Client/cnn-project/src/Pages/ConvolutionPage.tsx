@@ -63,6 +63,16 @@ export default function ConvolutionPage() {
                             `}
                         </MathJax>
                     </Proof>
+                    <Typography>
+                        {
+                        `Convolutions are very useful throughout mathematics, such as in
+                        solving differential equations.`}
+                    </Typography>
+                    <Typography variant="h6">Example</Typography>
+                    <Typography>{`Suppose we strike a spring-mass system with a hammer.
+                    
+                    
+                    `}</Typography>
 
                     <Typography variant="h6">
                         Discrete Convolution

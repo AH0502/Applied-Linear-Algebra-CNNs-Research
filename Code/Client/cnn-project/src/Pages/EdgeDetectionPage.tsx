@@ -15,8 +15,10 @@ export default function EdgeDetectionPage() {
  // TODO: Design homepage.
   return (
     <CustomPage title="Edge Detection">
-      <MathJax>{`So how do we detect edges in an image?
-      Experiment for yourself by uploading any image.`}</MathJax>
+      <MathJax>{`Having learned and proven several properties of the
+      convolution, let's dive into the basics of edge detection, which will be crucial
+      for computer vision--and ultimately--convolutional neural networks.`}</MathJax>
+      
       <Interactive
         title='Edge Detection'
         instructions='Select an image to upload.'>

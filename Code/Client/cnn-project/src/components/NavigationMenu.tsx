@@ -42,7 +42,9 @@ export default function NavigationMenu() {
                         <MenuItem onClick={() => handleClose("/convolution")}>Convolution</MenuItem>
                         <MenuItem onClick={() => handleClose("/edge-detection")}>Edge-Detection</MenuItem>
                         <MenuItem onClick={() => handleClose("/binary-classification")}>Binary Classification</MenuItem>
-                        
+                        <MenuItem onClick={() => handleClose("/pooling")}>Pooling</MenuItem>
+                        <MenuItem onClick={() => handleClose("/references")}>References</MenuItem>
+
                     </Menu>
                     </Box>
                 </Toolbar>

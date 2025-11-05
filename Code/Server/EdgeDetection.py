@@ -6,6 +6,7 @@ import pathlib
 from PIL import Image
 from HttpResponse import UnprocessableEntity
 import cv2
+from typing import Tuple
 
 class PathError(Exception):
    def __init__(self, message="No path to image specified."):
@@ -80,8 +81,26 @@ def CustomCanny(path: str):
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
+def BasicBlurFilter(bytes, kernel_size: Tuple[int, int] = (3, 3), blur: float = 0.333) -> io.BytesIO:
+    kernel: np.ndarray = blur * np.ones(kernel_size)
+
+    img = Image.open(bytes)
+
+    img = cv2.imread(img)
+
+    filtered_img = cv2.filter2D(img, -1, kernel)
+    
+    buffer = io.BytesIO()
+
+    cv2.imwrite(buffer, filtered_img)
+    
+    return buffer
+    
+
 # Local test
 if __name__ == "__main__":
     file_path: str = sys.argv[1]
-    CustomCanny(file_path)
+    # CustomCanny(file_path)
+    BasicBlurFilter(file_path, (3, 3), 1)
+
 

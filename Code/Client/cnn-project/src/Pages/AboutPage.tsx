@@ -23,6 +23,12 @@ export default function AboutPage () {
                             >
                             About the Author
                         </Typography>
+                        <Typography>
+                            I'm currently an undergraduate senior mathematics major at Rivier University in Nashua, NH. 
+                            
+                        </Typography>
+                        <Typography align="center" variant="h5">Resume</Typography>
+
                     </Box>
             </Box>
             </CustomPage>

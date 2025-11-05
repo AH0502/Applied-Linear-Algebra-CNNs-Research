@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, ThemeProvider, Typography } from "@mui/material";
 import NavigationMenu from "./NavigationMenu";
-import BottomNavMenu from "./BottomNavMenu";
+import Footer from "./Footer";
 import { theme } from "../main";
 
 
@@ -27,9 +27,7 @@ export default class CustomPage extends React.Component<
                         mt: "64px"}}>
                     {this.props.children}
                 </Box>
-                <Box>
-                        <BottomNavMenu />
-                </Box>
+                <Footer />
                 
             </Box>
             </ThemeProvider>
