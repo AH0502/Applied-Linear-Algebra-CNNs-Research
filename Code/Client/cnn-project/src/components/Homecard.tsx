@@ -1,7 +1,6 @@
 import {Card, CardContent, CardActions, Box, Button, Typography} from '@mui/material';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import BuildIcon from '@mui/icons-material/Build';
-import type { SvgIconComponent } from '@mui/icons-material';
 import { useNavigate } from 'react-router';
 
 interface HomecardProps {

@@ -2,7 +2,15 @@ import { useState } from "react"
 
 
 export default function NeuralNetworkVisualization() {
-  const [hoveredNode, setHoveredNode] = useState(null);
+  const [hoveredNode, setHoveredNode] = useState<string | null>(null);
+
+  interface Node {
+    id: string;
+    x: number;
+    y: number;
+    layer: number;
+    index: number;
+  }
   
   // Define network structure: [input layer, hidden layer 1, hidden layer 2, output layer]
   const layers = [3, 4, 4, 2];
@@ -14,7 +22,7 @@ export default function NeuralNetworkVisualization() {
   const layerSpacing = width / (layers.length + 1);
   
   // Generate node positions
-  const nodes = [];
+  const nodes: Node[] = [];
   layers.forEach((numNodes, layerIdx) => {
     const x = layerSpacing * (layerIdx + 1);
     const verticalSpacing = height / (numNodes + 1);
