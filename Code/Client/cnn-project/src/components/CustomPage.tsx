@@ -7,7 +7,7 @@ import { theme } from "../main";
 
 export default class CustomPage extends React.Component<
     {
-        title: string, 
+        title: string | null, 
         children?: React.ReactNode | null
     }> {
     render() {

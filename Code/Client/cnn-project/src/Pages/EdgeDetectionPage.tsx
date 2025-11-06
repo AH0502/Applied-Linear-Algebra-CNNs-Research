@@ -11,6 +11,8 @@ import Interactive from '../components/Interactive';
 
 export default function EdgeDetectionPage() {
 
+  document.title = "Edge Detection";
+
     const [status, setStatus] = useState<Status>(defaultStatus)
  // TODO: Design homepage.
   return (

@@ -32,20 +32,21 @@ export default function NavigationMenu() {
                     <Typography variant="h6">CNN Research Project</Typography>
                     <Box sx={{ display: "flex", mx: "auto"}}>
                     <Button color="inherit" onClick={() => navigate("/")}>Home</Button>
-                    <Button color="inherit" onClick={() => navigate("/about")}>About</Button>
-                    <Button onClick={handleClick} color="inherit" >Tools</Button>
+                    <Button onClick={handleClick} color="inherit" >Theory</Button>
+                    <Button color="inherit">Application</Button>
                     <Menu 
                         open={open}
                         anchorEl={anchorEl}
                         onClose={() => handleClose()}
                     >
                         <MenuItem onClick={() => handleClose("/convolution")}>Convolution</MenuItem>
-                        <MenuItem onClick={() => handleClose("/edge-detection")}>Edge-Detection</MenuItem>
-                        <MenuItem onClick={() => handleClose("/binary-classification")}>Binary Classification</MenuItem>
                         <MenuItem onClick={() => handleClose("/pooling")}>Pooling</MenuItem>
                         <MenuItem onClick={() => handleClose("/references")}>References</MenuItem>
+                        <MenuItem onClick={() => handleClose("/edge-detection")}>Edge-Detection</MenuItem>
+                        <MenuItem onClick={() => handleClose("/binary-classification")}>Binary Classification</MenuItem>
 
                     </Menu>
+                     
                     </Box>
                 </Toolbar>
         </AppBar>

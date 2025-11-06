@@ -31,7 +31,6 @@ createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
   <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/about" element={<AboutPage />} />
       <Route path="/edge-detection" element={<EdgeDetectionPage />} />
       <Route path="/binary-classification" element={<BinaryClassificationPage />} />
       <Route path="/convolution" element={<ConvolutionPage />} />

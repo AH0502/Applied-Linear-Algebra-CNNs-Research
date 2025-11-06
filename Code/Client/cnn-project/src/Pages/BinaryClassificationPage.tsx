@@ -9,6 +9,8 @@ import Interactive from "../components/Interactive";
 
 export default function BinaryClassificationPage() {
 
+    document.title = "Binary Classification"
+
     const [status, setStatus] = useState<Status>(defaultStatus)
 
     return (

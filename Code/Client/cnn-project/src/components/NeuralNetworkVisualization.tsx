@@ -7,10 +7,10 @@ export default function NeuralNetworkVisualization() {
   // Define network structure: [input layer, hidden layer 1, hidden layer 2, output layer]
   const layers = [3, 4, 4, 2];
   
-  const width = 800;
-  const height = 500;
-  const nodeRadius = 20;
-  const hoverRadius = 30;
+  const width = 400;
+  const height = 250;
+  const nodeRadius = 10;
+  const hoverRadius = 15;
   const layerSpacing = width / (layers.length + 1);
   
   // Generate node positions

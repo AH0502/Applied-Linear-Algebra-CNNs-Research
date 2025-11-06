@@ -7,6 +7,8 @@ import Proof from "../components/Proof";
 
 export default function ConvolutionPage() {
 
+    document.title = "Convolution";
+
     return (
         <CustomPage title="Convolution">
               <Typography>
