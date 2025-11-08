@@ -6,7 +6,7 @@ import keras
 from keras.preprocessing import image
 import numpy as np
 
-MODEL_PATH = "Code/Server/Models/model.keras"
+MODEL_PATH = "/Server/Models/model.keras"
 
 def preprocess_image(image_path) -> np.ndarray:
     img = Image.open(image_path)
@@ -21,5 +21,5 @@ def classify(output: np.ndarray) -> str:
 
 if __name__ == "__main__":
     model = keras.models.load_model(MODEL_PATH)
-    diggy = preprocess_image("/Users/alexanderhagopian/Documents/Rivier/FA25/Vault/MA490/Applied-Linear-Algebra-CNNs-Research/Code/Server/Models/Diggy.jpeg")
+    diggy = preprocess_image("/Users/alexanderhagopian/Documents/Rivier/FA25/Vault/MA490/Applied-Linear-Algebra-CNNs-Research/Server/Models/Diggy.jpeg")
     print(model(diggy).numpy()[0])
