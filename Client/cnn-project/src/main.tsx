@@ -8,7 +8,7 @@ import BinaryClassificationPage from './Pages/BinaryClassificationPage.tsx';
 import ConvolutionPage from './Pages/ConvolutionPage.tsx';
 import { MathJaxContext } from 'better-react-mathjax';
 import ReferencesPage from './Pages/ReferencesPage.tsx';
-import VectorSpacesPage from './Pages/VectorSpacesPage.tsx';
+import RingsandVectorSpacesPage from './Pages/RingsandVectorSpacesPage.tsx';
 
 // Create theme at some point.
 export const theme = createTheme({
@@ -34,7 +34,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path="/edge-detection" element={<EdgeDetectionPage />} />
       <Route path="/binary-classification" element={<BinaryClassificationPage />} />
       <Route path="/convolution" element={<ConvolutionPage />} />
-      <Route path="vector-spaces" element={<VectorSpacesPage />} />
+      <Route path="rings-and-vector-spaces" element={<RingsandVectorSpacesPage />} />
       <Route path="/references" element={<ReferencesPage />} />
     </Routes>
   </BrowserRouter>

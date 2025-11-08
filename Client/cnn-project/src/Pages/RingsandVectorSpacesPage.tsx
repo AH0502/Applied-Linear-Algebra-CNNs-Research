@@ -3,9 +3,9 @@ import CustomPage from "../components/CustomPage";
 import Definition from "../components/Definition";
 
 
-export default function VectorSpacesPage() {
+export default function RingsandVectorSpacesPage() {
     return (
-        <CustomPage title={"Vector Spaces"}>
+        <CustomPage title={"Rings and Vector Spaces"}>
             <Definition 
                 number="1.1"
                 title="Ring"
