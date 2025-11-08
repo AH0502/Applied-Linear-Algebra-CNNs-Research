@@ -8,7 +8,7 @@ import keras
 import matplotlib.pyplot as plt
 from PIL import Image, ImageOps
 
-MODEL_PATH = "Server/Models/model6.keras"
+MODEL_PATH = "./Models/model6.keras"
 
 app = FastAPI()
 

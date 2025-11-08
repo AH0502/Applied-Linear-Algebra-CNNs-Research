@@ -39,13 +39,18 @@ export default function NavigationMenu() {
                         anchorEl={anchorEl}
                         onClose={() => handleClose()}
                     >
+                        <MenuItem onClick={() => handleClose("/vector-spaces")}>Vector Spaces</MenuItem>
                         <MenuItem onClick={() => handleClose("/convolution")}>Convolution</MenuItem>
-                        <MenuItem onClick={() => handleClose("/pooling")}>Pooling</MenuItem>
-                        <MenuItem onClick={() => handleClose("/references")}>References</MenuItem>
+                        
                         <MenuItem onClick={() => handleClose("/edge-detection")}>Edge-Detection</MenuItem>
                         <MenuItem onClick={() => handleClose("/binary-classification")}>Binary Classification</MenuItem>
+            
+                        
 
                     </Menu>
+                    <Button color="inherit" onClick={() => navigate("/references")}>
+                        References
+                    </Button>
                      
                     </Box>
                 </Toolbar>
