@@ -1,6 +1,7 @@
 import { Box, Typography, AppBar, Toolbar, Button, Menu, MenuItem } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import MenuButton from "./MenuButton";
 
 export default function NavigationMenu() {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -33,7 +34,15 @@ export default function NavigationMenu() {
                     <Box sx={{ display: "flex", mx: "auto"}}>
                     <Button color="inherit" onClick={() => navigate("/")}>Home</Button>
                     <Button onClick={handleClick} color="inherit" >Theory</Button>
-                    <Button color="inherit">Application</Button>
+                    <MenuButton props={{
+                        label: "Application",
+                        options: [
+                            {name: "Regression", path: "/regression"},
+                            {name: "Edge-Detection", path: "/edge-detection"},
+                            {name: "Binary-Classification", path: "/binary-classification"}
+                        ]
+                            
+                    }} />
                     <Menu 
                         open={open}
                         anchorEl={anchorEl}
@@ -41,11 +50,6 @@ export default function NavigationMenu() {
                     >
                         <MenuItem onClick={() => handleClose("/rings-and-vector-spaces")}>Rings and Vector Spaces</MenuItem>
                         <MenuItem onClick={() => handleClose("/convolution")}>Convolution</MenuItem>
-                        <MenuItem onClick={() => handleClose("/edge-detection")}>Edge-Detection</MenuItem>
-                        <MenuItem onClick={() => handleClose("/binary-classification")}>Binary Classification</MenuItem>
-            
-                        
-
                     </Menu>
                     <Button color="inherit" onClick={() => navigate("/references")}>
                         References

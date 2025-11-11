@@ -32,3 +32,25 @@ export async function binary_classification(file: File): Promise<Blob> {
         throw new InternalServerError();
     }
 }
+
+export async function regression(numNeurons: number, numLayers: number) {
+    try {
+        const formData = new FormData();
+        formData.append("numNeurons", `${numNeurons}`);
+        formData.append("numLayers", `${numLayers}`);
+
+
+        const response = await fetch(
+            "http:127.0.0.1:8000/api/regression",
+            {
+                method: "POST",
+                body: formData
+            }
+        );
+        return response.body;
+        
+    } catch (e) {
+        throw new Error("Unknown Error.");
+    }
+
+}

@@ -1,12 +1,14 @@
 from Models.test import classify, preprocess_image
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import StreamingResponse
-from EdgeDetection import BasicBlurFilter, BasicEdgeDetector
+from EdgeDetection import BasicBlurFilter
 from fastapi.middleware.cors import CORSMiddleware
 import io
 import keras
 import matplotlib.pyplot as plt
 from PIL import Image, ImageOps
+
+from Server.HttpResponse import HttpResponse
 
 MODEL_PATH = "./Models/model6.keras"
 
@@ -73,6 +75,14 @@ async def binary_classification(file: UploadFile = File(...)):
     
     except Exception as e:
         return {"Error": e.args}
+    
+
+async def regression() -> HttpResponse:
+    
+
+    
+
+
     
         
 
