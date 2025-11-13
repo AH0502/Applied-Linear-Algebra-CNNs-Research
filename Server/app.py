@@ -8,8 +8,6 @@ import keras
 import matplotlib.pyplot as plt
 from PIL import Image, ImageOps
 
-from Server.HttpResponse import HttpResponse
-
 MODEL_PATH = "./Models/model6.keras"
 
 app = FastAPI()
@@ -23,11 +21,6 @@ app.add_middleware(
 )
 
 binary_classifier = keras.models.load_model(MODEL_PATH)
-
-###
-# Output Model Summary to a .txt file
-###
-binary_classifier.summary()
 
 @app.get('/')
 async def root():
@@ -76,9 +69,9 @@ async def binary_classification(file: UploadFile = File(...)):
     except Exception as e:
         return {"Error": e.args}
     
-
-async def regression() -> HttpResponse:
-    
+@app.post("/api/regression")
+async def regression():
+    pass
 
     
 

@@ -33,11 +33,10 @@ export async function binary_classification(file: File): Promise<Blob> {
     }
 }
 
-export async function regression(numNeurons: number, numLayers: number) {
+export async function regression(numNeurons: number) {
     try {
         const formData = new FormData();
         formData.append("numNeurons", `${numNeurons}`);
-        formData.append("numLayers", `${numLayers}`);
 
 
         const response = await fetch(

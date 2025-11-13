@@ -6,7 +6,7 @@ import keras
 from keras.preprocessing import image
 import numpy as np
 
-MODEL_PATH = "/Server/Models/model.keras"
+MODEL_PATH = "model6.keras"
 
 def preprocess_image(image_path) -> np.ndarray:
     img = Image.open(image_path)
