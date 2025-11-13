@@ -2,17 +2,17 @@ import CustomPage from "../components/CustomPage";
 import Plot from "react-plotly.js";
 import Interactive from "../components/Interactive";
 import { Box, Slider, Typography } from "@mui/material";
-import { useState } from "react";
-import { regression } from "../api/post";
+// import { useState } from "react";
+// import { regression } from "../api/post";
 
 export default function RegressionPage() {
-    const [sliderValue, setSliderValue] = useState<number>(1);
-    const [isTraining, setIsTraining] = useState<boolean>(false);
+    // const [sliderValue, setSliderValue] = useState<number>(1);
+    // const [isTraining, setIsTraining] = useState<boolean>(false);
 
-    const handleCommittedChange = (value: number) => {
-        const response = regression(value);
+    // const handleCommittedChange = (value: number) => {
+    //     const response = regression(value);
 
-    }
+    // }
 
     return (
         <CustomPage>
@@ -28,10 +28,6 @@ export default function RegressionPage() {
                 valueLabelDisplay="auto"
                 defaultValue={1}
                 step={1}
-                onChangeCommitted={(_, value: number) => {
-                    setSliderValue(value);
-                    handleCommittedChange(value);
-                }}
                 />
 
             </Box>
