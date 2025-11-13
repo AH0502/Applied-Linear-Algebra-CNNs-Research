@@ -33,6 +33,14 @@ export default function NavigationMenu() {
                     <Typography variant="h6">CNN Research Project</Typography>
                     <Box sx={{ display: "flex", mx: "auto"}}>
                     <Button color="inherit" onClick={() => navigate("/")}>Home</Button>
+                    <MenuButton 
+                        props={{
+                            label: "Algebraic Foundations",
+                            options: [
+                                {name: "Rings, Fields, and Vector Spaces", path: "/rings-and-vector-spaces"}
+                            ]
+                        }}
+                    />
                     <Button onClick={handleClick} color="inherit" >Theory</Button>
                     <MenuButton props={{
                         label: "Application",
@@ -48,7 +56,6 @@ export default function NavigationMenu() {
                         anchorEl={anchorEl}
                         onClose={() => handleClose()}
                     >
-                        <MenuItem onClick={() => handleClose("/rings-and-vector-spaces")}>Rings and Vector Spaces</MenuItem>
                         <MenuItem onClick={() => handleClose("/convolution")}>Convolution</MenuItem>
                     </Menu>
                     <Button color="inherit" onClick={() => navigate("/references")}>
