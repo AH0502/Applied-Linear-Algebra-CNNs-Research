@@ -1,0 +1,13 @@
+.footer_secondary_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.footer_container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

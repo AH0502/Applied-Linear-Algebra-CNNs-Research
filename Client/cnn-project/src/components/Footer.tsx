@@ -1,36 +1,29 @@
-import { Box, Grid, IconButton, Typography } from "@mui/material"
+import "../Styles/footer.css";
 import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { IconButton } from "@mui/material";
+
 
 
 export default function Footer() {
     return (
-            <Box border={1} m={2}>
-              <Grid 
-                container 
-                rowSpacing={1} 
-                columnSpacing={3}
-                justifyContent="center"
-                alignItems="center">
-                    <Grid>
-                        <Typography variant="h3">Deep Learning</Typography>
-                        <Typography variant="h5">A Mathematical Exploration</Typography>
-                    </Grid>
-                    <Grid display="flex" flexDirection="column">
-                        <Typography variant="h6">Project Info</Typography>
-                        <Typography>Alex Hagopian</Typography>
-                        <Typography>Rivier University</Typography>
-                    </Grid>
-                    <Grid>
-                        <Typography variant="h6">Technologies</Typography>
-                    </Grid>
-                    <Grid>
-                        <IconButton target="_blank" href="https://github.com/AH0502/Applied-Linear-Algebra-CNNs-Research">
-                            <GitHubIcon />
-                        </IconButton>
-                        
-                    </Grid>
-
-              </Grid>
-            </Box>
+            <div className="footer_container">
+                <div className='footer_secondary_container'>
+                    <IconButton 
+                        href="https://github.com/AH0502/Applied-Linear-Algebra-CNNs-Research"
+                        target="_blank"
+                        >
+                        <GitHubIcon />
+                    </IconButton>
+                    <IconButton 
+                        href="https://linkedin.com/in/alexander-hagopian-650a56255"
+                        target="_blank"
+                        >
+                        <LinkedInIcon />
+                    </IconButton>
+                </div>
+                <div className='footer_secondary_container'>
+                </div>
+            </div>
     )
 }

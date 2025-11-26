@@ -1,6 +1,7 @@
 import { Box, Typography, AppBar, Toolbar, Button, Menu, MenuItem } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import MenuButton from "./MenuButton";
 
 export default function NavigationMenu() {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -29,23 +30,29 @@ export default function NavigationMenu() {
             mb: 64
         }}>
                 <Toolbar>
-                    <Typography variant="h6">CNN Research Project</Typography>
+                    <Typography variant="h6">Deep Learning: A Mathematical Exploration</Typography>
                     <Box sx={{ display: "flex", mx: "auto"}}>
                     <Button color="inherit" onClick={() => navigate("/")}>Home</Button>
                     <Button onClick={handleClick} color="inherit" >Theory</Button>
-                    <Button color="inherit">Application</Button>
+                    <MenuButton props={{
+                        label: "Application",
+                        options: [
+                            {name: "Edge-Detection", path: "/edge-detection"},
+                            {name: "Binary-Classification", path: "/binary-classification"},
+                            {name: "Multilabel Classification", path: "/multilabel-classification"}
+                        ]
+                            
+                    }} />
                     <Menu 
                         open={open}
                         anchorEl={anchorEl}
                         onClose={() => handleClose()}
                     >
                         <MenuItem onClick={() => handleClose("/convolution")}>Convolution</MenuItem>
-                        <MenuItem onClick={() => handleClose("/pooling")}>Pooling</MenuItem>
-                        <MenuItem onClick={() => handleClose("/references")}>References</MenuItem>
-                        <MenuItem onClick={() => handleClose("/edge-detection")}>Edge-Detection</MenuItem>
-                        <MenuItem onClick={() => handleClose("/binary-classification")}>Binary Classification</MenuItem>
-
                     </Menu>
+                    <Button color="inherit" onClick={() => navigate("/references")}>
+                        References
+                    </Button>
                      
                     </Box>
                 </Toolbar>

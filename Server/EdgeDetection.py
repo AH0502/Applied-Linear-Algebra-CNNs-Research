@@ -46,7 +46,7 @@ def BasicEdgeDetector(path):
         print(error.message)
         return UnprocessableEntity()
 
-    kernel = np.array([[-1, -1, -1,], [-1, 2, -1], [-1, -1, -1]])
+    kernel = np.array([[-2, 0, 2,], [-2, 0, 2], [-2, 0, 2]])
     
 
     filtered_img = np.zeros(shape=(img_height -2 , img_width - 2))
