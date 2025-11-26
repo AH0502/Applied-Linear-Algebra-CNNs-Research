@@ -10,6 +10,7 @@ import { MathJaxContext } from 'better-react-mathjax';
 import ReferencesPage from './Pages/ReferencesPage.tsx';
 import RingsandVectorSpacesPage from './Pages/RingsandVectorSpacesPage.tsx';
 import RegressionPage from './Pages/RegressionPage.tsx';
+import MultilabelClassificationPage from './Pages/MultilabelClassificationPage.tsx';
 
 // Create theme at some point.
 export const theme = createTheme({
@@ -17,7 +18,7 @@ export const theme = createTheme({
     MuiBottomNavigationAction: {
       styleOverrides: {
         root: {
-          Butt: "none",
+          Button: "none",
           
         }
       }
@@ -36,6 +37,8 @@ createRoot(document.getElementById('root')!).render(
       <Route path="/edge-detection" element={<EdgeDetectionPage />} />
       <Route path="/binary-classification" element={<BinaryClassificationPage />} />
       <Route path="/convolution" element={<ConvolutionPage />} />
+      <Route path="/pooling" />
+      <Route path="/multilabel-classification" element={<MultilabelClassificationPage />} />
       <Route path="rings-and-vector-spaces" element={<RingsandVectorSpacesPage />} />
       <Route path="/references" element={<ReferencesPage />} />
     </Routes>

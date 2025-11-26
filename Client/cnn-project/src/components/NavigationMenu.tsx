@@ -30,24 +30,16 @@ export default function NavigationMenu() {
             mb: 64
         }}>
                 <Toolbar>
-                    <Typography variant="h6">CNN Research Project</Typography>
+                    <Typography variant="h6">Deep Learning: A Mathematical Exploration</Typography>
                     <Box sx={{ display: "flex", mx: "auto"}}>
                     <Button color="inherit" onClick={() => navigate("/")}>Home</Button>
-                    <MenuButton 
-                        props={{
-                            label: "Algebraic Foundations",
-                            options: [
-                                {name: "Rings, Fields, and Vector Spaces", path: "/rings-and-vector-spaces"}
-                            ]
-                        }}
-                    />
                     <Button onClick={handleClick} color="inherit" >Theory</Button>
                     <MenuButton props={{
                         label: "Application",
                         options: [
-                            {name: "Regression", path: "/regression"},
                             {name: "Edge-Detection", path: "/edge-detection"},
-                            {name: "Binary-Classification", path: "/binary-classification"}
+                            {name: "Binary-Classification", path: "/binary-classification"},
+                            {name: "Multilabel Classification", path: "/multilabel-classification"}
                         ]
                             
                     }} />
